@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" class="img-fluid" alt="Star Wars Logo" style="height: 50px;"> <!-- Altura ajustada a 50px -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8" *ngFor="let nave of naves" (click)="onSelected(nave)" style="cursor: pointer;">
+      <div class="card" style="width: 15rem; height: 33rem">
+        <img class="card-img-top" src="{{ nave.imagen }}" alt="{{ nave.empresa_fabricacion }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ nave.descripcion }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4" *ngIf="selected">
+      <app-nave-detail [naveDetail]="selectedNave"></app-nave-detail>
+    </div>
+  </div>
+</div>
